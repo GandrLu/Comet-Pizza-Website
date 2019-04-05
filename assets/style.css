@@ -1,0 +1,751 @@
+* {
+    font-family: 'Lucida Sans Unicode', Arial, sans-serif;
+    margin: 0;
+    /*padding: 0; because nested list won't work elsewise*/
+    box-sizing: border-box;
+    transition: background-color 0.4s;
+    transition: box-shadow 0.4s;
+}
+
+html {
+    height: 100%;
+}
+
+
+/* to realize sticky footer witch flex boxes */
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header-container {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.header {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    background-image: url('images/night_sky.gif');
+}
+
+
+/* logo style */
+
+.logo {
+    min-width: 60px;
+    min-height: 50px;
+    height: 100%;
+    width: 170px;
+    margin-left: 30px;
+    background-image: url('images/Comet_pizza_neo_2.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform .2;
+    flex-shrink: 2;
+}
+
+.logo:hover {
+    transform: scale(1.03);
+}
+
+.logopic {
+    height: 100%;
+}
+
+
+/* only visible if width > 768px */
+
+.menu {
+    display: flex;
+    margin-left: 40px;
+    margin-right: 200px;
+}
+
+
+/* visible if width <= 768px */
+
+.menu2 {
+    margin-left: 40px;
+    margin-right: 200px;
+    display: none;
+    flex-shrink: 0;
+}
+
+
+/* custom button used in header */
+
+.buttonS {
+    display: block;
+    background-color: rgb(189, 181, 181);
+    color: white;
+    padding: 12px 16px;
+    margin: 2px;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2) inset;
+    border-radius: 1px;
+}
+
+.button a {
+    display: block;
+    background-color: rgb(189, 181, 181);
+    color: white;
+    padding: 12px 16px;
+    margin: 2px;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2) inset;
+    border-radius: 1px;
+}
+
+.button a:hover:not(.active) {
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.2) inset, 0px 2px 18px 6px rgba(149, 252, 236, 0.61);
+}
+
+
+/* sets size for icon in link column */
+
+.button img {
+    width: 30px;
+}
+
+
+/* Searchbar elements */
+
+.searchbar {
+    margin: 2px;
+    height: 30px;
+    display: flex;
+}
+
+.searchbar button {
+    background-color: rgb(189, 181, 181);
+    color: #04001a;
+    width: 30px;
+    border: none;
+}
+
+.searchbar button:hover {
+    background-color: red;
+    color: white;
+}
+
+
+/* link column, fixed to the right edge of the window */
+
+.links {
+    position: absolute;
+    right: 0px;
+    display: block;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+}
+
+.login-confirm {
+    right: 80px;
+    position: absolute;
+    top: 25px;
+    color: white;
+    text-align: right;
+    width: 100px;
+}
+
+.login-confirm p {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    /*align: bottom;*/
+}
+
+
+/* container for entire page contents, sets padding and bg color */
+
+.content {
+    flex: 1;
+    background-color: rgb(242, 247, 253);
+    padding: 20px 5% 40px 5%;
+    box-shadow: 0px 6px 18px 0px rgba(6, 5, 46, 0.281) inset;
+}
+
+
+/* used for headlining various pages */
+
+.greeter-message {
+    color: rgb(7, 5, 46);
+}
+
+
+/* contains slideshow and a second container */
+
+.startpage-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.startpage-greeter {
+    height: 50px;	
+    overflow: hidden;
+    position: relative;
+    background-color: rgb(7, 5, 46);
+}
+
+.startpage-greeter h4 {
+    position: absolute;
+    color: white;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    /* Starting position */	
+    transform:translateX(-100%);
+    /* Apply animation to this element */	
+    animation: scrollText 15s linear infinite;
+   }
+   /* Move it (define the animation) */
+   @keyframes scrollText {
+    0%   { 
+    transform: translateX(100%); 		
+    }
+    100% { 
+    transform: translateX(-100%); 
+    }
+}
+
+.startpage-info {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.startpage-element {
+    height: 48%;
+    width: 100%;
+    background-color: red;
+    padding: 20px 30px 20px 30px;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.startpage-element p {
+    color: white;
+    font-size: 32px;
+    font-style: bold;
+    text-decoration: none;
+}
+
+.startpage-element:hover {
+    background-color: rgb(187, 12, 12);
+    text-decoration: none;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2) inset;
+}
+
+.startpage-element p:hover {
+    color: white;
+    font-style: bold;
+}
+
+
+/* contains all items in shopview */
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag-container {
+    font-size: 12px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.tag-button {
+    color: white;
+    background-color: red;
+    font-size: 10px;
+    text-align: center;
+    padding: 5px 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+/* removes blue outline when clicked in chrome */
+
+.tag-button:focus {
+    outline: 0;
+}
+
+.tag-button:hover {
+    background-color: rgb(187, 12, 12);
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
+}
+
+.tag-button.active {
+    background-color: rgb(187, 12, 12);
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
+}
+
+
+/* includes changes for tag-button to better fit in productview */
+
+.description {
+    background-color: rgb(187, 12, 12);
+    cursor: default;
+    margin-left: 0;
+    margin-right: 15px;
+}
+
+.tag-button.description {
+    box-shadow: none;
+}
+
+.product-card {
+    padding: 2%;
+    flex-grow: 0;
+    flex-basis: 290px;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2;
+    display: none;
+}
+
+.product-card:hover {
+    box-shadow: 0px 1px 8px 0px rgba(154, 211, 252, 0.116);
+}
+
+
+/* unhides elements matching the chosen tag in shopview */
+
+.show {
+    display: block;
+}
+
+.product-card a {
+    color: black;
+}
+
+.product-card a:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-pic img {
+    max-width: 100%;
+}
+
+.product-info {
+    margin-top: auto;
+    padding-top: 10px;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+}
+
+.product-info:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.product-name {
+    color: rgb(7, 5, 46);
+    margin-top: 20px;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-page-pic {
+    padding: 2%;
+    width: 50%;
+}
+
+.product-page-pic img {
+    max-width: 100%;
+    transition: transform 0.8s;
+}
+
+.product-page-pic img:hover {
+    transform: scale(1.1);
+}
+
+.product-description {
+    padding: 2%;
+    margin-top: 20px;
+    width: 50%;
+}
+
+#productPrice {
+    color: rgb(7, 5, 46);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+/* custom button used in various places */
+
+.button2 {
+    width: 100px;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    background-color: rgb(7, 5, 46);
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+button2:focus {
+    outline: 0;
+}
+
+
+/* used to built disabled custom buttons */
+
+.disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.button2.disabled:hover {
+    background-color: rgb(7, 5, 46);
+}
+
+.button2 a {
+    color: white;
+    text-decoration: none;
+}
+
+.button2:hover {
+    background-color: red;
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.2) inset;
+}
+
+.button2 a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.button-delete {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+    padding: 10px 10px;
+    width: 150px;
+    background-color: red;
+    cursor: pointer;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.button-delete:hover {
+    background-color: rgb(187, 12, 12);
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2) inset;
+}
+
+.shoppingcart-button {
+    position: absolute;
+    right: 5%;
+}
+
+.footer {
+    flex-shrink: 0;
+    display: block;
+}
+
+.footer-item-container {
+    padding: 30px 10%;
+    background-color: #04001a;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-border {
+    width: 100%;
+    height: 25px;
+    background-image: url('images/night_sky.gif');
+}
+
+.footer-item {
+    margin: 10px;
+}
+
+.footer-item a {
+    color: rgb(189, 181, 181);
+    font-size: 14px;
+    padding: 15px;
+    height: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.footer-item.social a {
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    padding: 0px;
+    text-align: center;
+    justify-content: center;
+    /* background-image: url('images/social-icons.svg');
+    background-position: center;
+    background-repeat: no-repeat; */
+}
+
+.footer-item a:hover:not(.active) {
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown .dropbtn {
+    font-size: 18px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 12px 16px;
+    background-color: rgb(189, 181, 181);
+    font-family: inherit;
+    margin: 0;
+    border-radius: 1px;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2) inset;
+}
+
+.dropdown .dropbtn:hover {
+    background-color: red;
+    box-shadow: -2px 3px 18px 2px rgba(149, 252, 236, 0.61), 0px 1px 10px 0px rgba(0, 0, 0, 0.2) inset;
+    ;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(189, 181, 181);
+    min-width: 160px;
+    z-index: 1;
+    box-shadow: -2px 3px 18px 2px rgba(149, 252, 236, 0.61), 0px 2px 10px 0px rgba(0, 0, 0, 0.2) inset;
+}
+
+.dropdown-content a {
+    float: none;
+    color: white;
+    font-size: 16px;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    text-decoration: none;
+    background-color: red;
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.carousel {
+    width: 48%;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.carousel:hover {
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2) inset;
+}
+
+.carousel-inner img {
+    width: 100%;
+}
+
+.carousel-caption p {
+    font-size: 26px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.shoppingcart-container {
+    display: block;
+}
+
+.shoppingcart-container p {
+    color: rgb(7, 5, 46);
+    font-size: 18px;
+}
+
+.shoppingcart-container a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.shoppingcart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shoppingcart-item p {
+    width: 25%;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+.shoppingcart-item img {
+    max-width: 150px;
+}
+
+.checkout-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.checkout-container h4 {
+    color: rgb(7, 5, 46);
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+.checkout-overview {
+    width: 40%;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-right: 30px;
+}
+
+.checkout-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+}
+
+.checkout-item img {
+    max-width: 50px;
+}
+
+.checkout-item p {
+    font-size: 14px;
+}
+
+.checkout-control {
+    width: 48%;
+}
+
+.checkout-control-item {
+    margin-bottom: 30px;
+}
+
+.checkout-control-item input {
+    width: 30px;
+}
+
+.text-container {
+    max-width: 80%;
+    text-align: justify;
+}
+
+.text-container img {
+    max-width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid black;
+}
+
+@media (max-width: 768px) {
+    .product-description {
+        width: 100%;
+    }
+    .product-page-pic {
+        width: 100%;
+    }
+    .startpage-info {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .carousel {
+        width: 100%;
+    }
+    .menu {
+        display: none;
+    }
+    .menu2 {
+        display: flex;
+    }
+    .shoppingcart-item p {
+        font-size: 16px;
+    }
+    .greeter-message h1 {
+        font-size: 25px;
+    }
+    .logo {
+        width: 150px;
+    }
+    .checkout-overview {
+        width: 80%
+    }
+    .checkout-control {
+        width: 100%;
+    }
+    .startpage-greeter h4 {
+        animation: scrollText 10s linear infinite;
+    }
+}
+
+@media (max-width: 1024px) {
+    #segment1 {
+        display: none;
+    }
+}
+
+@media (max-width: 580px) {
+    #segment1 {
+        display: inline;
+    }
+    #segment2 {
+        display: none;
+    }
+}
+
+@media (max-width: 384px) {
+    .dropbtn {
+        width: 60px;
+    }
+    .dropbtn span {
+        display: none;
+    }
+}
